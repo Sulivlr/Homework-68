@@ -1,10 +1,13 @@
-import TodoForm from './components/TodoForm';
+import TasksForm from './components/TodoForm/TasksForm';
+import Tasks from './components/Todos/Tasks';
 
 const App = () => {
   return (
     <>
       <div className="container mt-2">
-        <TodoForm />
+        <TasksForm />
+        <hr/>
+        <Tasks />
       </div>
     </>
   );
