@@ -1,7 +1,11 @@
+import TodoForm from './components/TodoForm';
+
 const App = () => {
   return (
     <>
-      <h1>Hello World!</h1>
+      <div className="container mt-2">
+        <TodoForm />
+      </div>
     </>
   );
 };
