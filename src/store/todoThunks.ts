@@ -1,5 +1,5 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {ApiTask, ApiTasks, Task} from '../types';
+import {ApiTask, ApiTasks, EditTaskArgument, Task} from '../types';
 import axiosApi from '../axiosApi';
 
 export const createTask = createAsyncThunk<void, ApiTask>(
@@ -21,6 +21,15 @@ export const fetchTasks = createAsyncThunk<Task[]>(
         ...apiTasks[id]
       }));
   },
+);
+
+
+
+export const editTask = createAsyncThunk<void, EditTaskArgument>(
+  'todo/editTask',
+  async ({taskId, apiTask}) => {
+    await axiosApi.put(`/tasks/${taskId}.json`, apiTask);
+  }
 );
 
 export const removeTask = createAsyncThunk<void, string>(

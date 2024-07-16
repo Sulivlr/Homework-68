@@ -10,3 +10,8 @@ export interface ApiTasks {
 export interface Task extends ApiTask {
   id: string;
 }
+
+export interface EditTaskArgument {
+  taskId: string;
+  apiTask: ApiTask;
+}
