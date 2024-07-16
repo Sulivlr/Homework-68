@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import ButtonSpinner from '../ButtonSpinner/ButtonSpinner';
 import {ApiTask} from '../../types';
-import {createTask} from '../../store/todoThunks';
+import {createTask, fetchTasks} from '../../store/todoThunks';
 const TasksForm = () => {
   const dispatch = useAppDispatch();
   const createLoading = useAppSelector(state => state.todo.createLoading);
@@ -16,6 +16,7 @@ const TasksForm = () => {
     };
     await dispatch(createTask(task));
     setTaskTitle('');
+    await dispatch(fetchTasks());
   };
 
   const onTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => setTaskTitle(event.target.value);

@@ -22,3 +22,10 @@ export const fetchTasks = createAsyncThunk<Task[]>(
       }));
   },
 );
+
+export const removeTask = createAsyncThunk<void, string>(
+  'todo/removeTask',
+  async (taskId) => {
+    await axiosApi.delete(`/tasks/${taskId}.json`);
+  }
+);
